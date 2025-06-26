@@ -1,4 +1,3 @@
-
 // Base class: Employee
 class Employee {
     constructor(name, department) {
@@ -34,7 +33,12 @@ class Company {
     }
 
     listEmployees() {
-        this.employees.forEach(emp => console.log(emp.describe()));
+        const listEl = document.getElementById("employeeList");
+        this.employees.forEach(emp => {
+            const li = document.createElement("li");
+            li.textContent = emp.describe();
+            listEl.appendChild(li);
+        });
     }
 }
 
@@ -49,5 +53,5 @@ usfCompany.addEmployee(emp1);
 usfCompany.addEmployee(emp2);
 usfCompany.addEmployee(mgr1);
 
-// List all employees
+// Display in browser
 usfCompany.listEmployees();
